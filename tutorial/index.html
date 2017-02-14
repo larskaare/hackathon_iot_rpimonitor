@@ -1,0 +1,280 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>IOT Hackathon - RPI Monitor</title>
+	<link rel="stylesheet" href="css/reveal.css">
+	<!--<link rel="stylesheet" href="css/theme/black.css">-->
+	<link rel="stylesheet" href="css/theme/night.css" <!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>IOT Hackathon</h1>
+				<p>Raspberry PI Monitor</p>
+				<p style="color: red"><q>Everyone &amp; Everything is connected</q></p>
+			</section>
+			<section>
+				<h2>Goal</h2>
+				<blockquote>
+					&ldquo;Starting from a Software Development Perspective, trigger and nurture curiosity towards IOT - technology, appliances,
+					impact, opportunities and risks.&rdquo;
+				</blockquote>
+			</section>
+			<section>
+				<h2>Tutorial</h2>
+				<ol>
+					<li class="fragment">Hello world from Arduino</li>
+					<li class="fragment">Hello world from Raspberry PI</li>
+					<li class="fragment">Raspberry PI + Arduino</li>
+					<li class="fragment">Adding a temperature sensor</li>
+					<li class="fragment">Adding Motion detection</li>
+					<li class="fragment">Adding a camera</li>
+					<li class="fragment">Pushing data to the cloud</li>
+					<li class="fragment" style="color: red">You keep on experimenting!</li>
+				</ol>
+			</section>
+			<section>
+				<h2>Fasten your seat belts!</h2>
+				<p>I want to get you to the "keep on experimenting" parts as fast as possible. This is where the good stuff happens!</p>
+			</section>
+			<!-- Start of Arduino hello world tutorial -->
+			<section>
+				<section>
+					 <h1>Arduino -</br> hello world</h1>
+				</section>
+				<section>
+					<p>
+					<blockquote>&ldquo;Every significant journey in computer science starts with a hello world!&rdquo;</blockquote>
+					</p>
+				</section>
+				<section>
+					<p><a href="https://www.arduino.cc/" target="_blank">Arduino</a> - The Open Source electronics plattform</p>
+					<img width="40%" height="40%" src="https://www.arduino.cc/en/uploads/Products/Uno.jpg" alt="Arduino Uno">
+					<p style="font-size: 50%">Arduino Uno: Micro controller (ATmega328P), 14 Digital I/O Pins - 6 is <a href="https://www.arduino.cc/en/Tutorial/PWM"
+										target="_blank">PWM</a>, 6 Analoge Input Pins, 5v, 3.3v, USB Connection.
+						<p style="font-size: 60%">A ton of sensors and examples available. </p>
+				</section>
+				<section>
+					<p>Connecting Laptop/IDE to Arduino</p>
+					<p>Making the internal led blink</p>
+				</section>
+				<section>
+					<p>Adding a breadboard with led</p>
+				</section>
+				<section>
+					<p>Adding button, turning led on/off</p>
+				</section>
+			</section>
+
+			<!-- Start of Raspberry PI hello world tutorial -->
+			<section>
+				<section>
+					<h1>Raspberry PI</br>- hello world</h1>
+				</section>
+				<section>
+					<p><a href="https://www.raspberrypi.org/">RaspberryPI</a> - The Credit-card-sized computer</p>
+					<img width="40%" height="40%" src="https://www.element14.com/community/servlet/JiveServlet/showImage/102-80899-15-252356/Pi3+Breakout+Feb+29+2016.png"
+									alt="Raspberry PI V3 Model B">
+					<p style="font-size: 50%"><a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b/" target="_blank">RPI v3, Model B</a>: 1.2 Ghz
+						64-Bits Quad Core Arm CPU, Wifi, Bluetooth, 1 GB Ram, 4 Usb Ports, 40 GPIO Pins (only Digital), Full HDMI Support,
+						Ethernet port, Audio Jack, Micro SD storage, Own video graphics core </p>
+					<p style="font-size: 60%"><a href="https://www.raspberrypi.org/downloads/" target="_blank">Supporting</a> multiple Linux versions and Windows
+						10 IOT Core </p>
+					<p style="font-size: 60%">A huge community, a lot of sensors and examples available. </p>
+				</section>
+				<section>
+					<p>Connecting peripherals and booting raspbian</p>
+					<p>Logging in</p>
+					<p>Using X or terminal</p>
+				</section>
+				<section>
+					<p>We have cheated and pre-installed necessary software such as</p>
+					<ul>
+						<li>Raspbian (debian based)</li>
+						<li>NodeJs</li>
+						<li>Wifi config</li>
+						<li>....</li>
+					</ul>
+					<p>A few words on security - this is a computer, having quite a few more attach vectors than the Arduino</p>
+				</section>
+				<section>
+					<p>Creating project folder, init git repository, init nodejs project</p>
+				</section>
+				<section>
+					<p>Hello world form Rasperry PI - by NodeJs
+						<p>
+				</section>
+			</section>
+
+			<!-- Start of RPI + Arduino tutorial -->
+			<section>
+				<section>
+					<h2>Hello World!</br> Best regards from Raspberry PI &amp; Arduino</h2>
+				</section>
+				<section>
+					<p>Arduino &amp; and RPI = Happy Marriage?</p>
+					<p>Introducing Johnny5</p>
+					<p>Loading firmata into the Arduino</p>
+				</section>
+				<section>
+					<p>Hello world form RPI &amp; Arduino
+						<p>
+							<p>Using the set-up from part #1
+								<p>
+									<p>Register button activity and turn led on/off
+										<p>
+				</section>
+			</section>
+			<!-- Start of Adding a temperature sensor -->
+			<section>
+				<section>
+					<p>
+						<h1>Adding a temperature sensor</h1>
+					</p>
+				</section>
+				<section>
+					<p>About the sensor</p>
+				</section>
+				<section>
+					<p>Wiring</p>
+				</section>
+				<section>
+					<p>Code</p>
+				</section>
+			</section>
+			<!-- Start of Adding motion detection -->
+			<section>
+				<section>
+					<p>
+						<h1>Adding motion detection</h1>
+					</p>
+				</section>
+				<section>
+					<p>About the sensor</p>
+				</section>
+				<section>
+					<p>Wiring</p>
+				</section>
+				<section>
+					<p>Code</p>
+				</section>
+			</section>
+			<!-- Start of Adding a camera -->
+			<section>
+				<section>
+					<p>
+						<h1>Adding camera</h1>
+					</p>
+				</section>
+				<section>
+					<p>About the camera and the interface</p>
+				</section>
+				<section>
+					<p>Wiring</p>
+				</section>
+				<section>
+					<p>Taking snapshots from the command line</p>
+				</section>
+				<section>
+					<p>Taking snapshots from our app</p>
+				</section>
+			</section>
+			<!-- Start of Pushing data to the cloud -->
+			<section>
+				<section>
+					<p>
+						<h1>Pushing data to the cloud</h1>
+					</p>
+				</section>
+				<section>
+					<p>Sending Sensor data to Elastic Search</p>
+				</section>
+				<section>
+					<p>Sending snapshots to Cloud Storage</p>
+				</section>
+			</section>
+			<!-- Start of you keep on experimenting -->
+			<section>
+				<section>
+					<h2 style="color: red">You keep on experimenting!</h2>
+				</section>
+				<section>
+					<p>Some suggestions</p>
+				</section>
+				<section>
+					<p>Add another sensor, like light or movements - push data to the cloud</p>
+				</section>
+				<section>
+					<p>Change instrumentation on cloud side, utilize IOT-Hub &amp; Stream Analytics</p>
+				</section>
+				<section>
+					<p>Re-Write app to utilize Python rather than NodeJs</p>
+					<p>With, or without, support from the Arduino</p>
+				</section>
+				<section>
+					<p>Use other tools to capture and visualize data (like InfluxDB + Graphana)</p>
+				</section>
+				<section>
+					<p style="font-size: 70%">Create a web application to serve control device and show snapshots. Potential features:
+						<ul style="font-size: 50%">
+							<li>Show device status</li>
+							<li>Turn motion detection on/off</li>
+							<li>Show snapshots</li>
+							<li>Implement notification &amp; alarms for movements (using email, mobile push, ...)</li>
+						</ul>
+					</p>
+				</section>
+				<section>
+					<p style="font-size: 70%">Capture video</p>
+				</section>
+				<section>
+					<p style="font-size: 70%">Create web application which steams live video &amp; sensor data from device</p>
+				</section>
+			</section>
+			<!-- Start of Share from your journey -->
+			<section>
+				<h1 style="color: cadetblue">Share from your journey!</h1>
+			</section>
+		</div>
+	</div>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+	<script>
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			history: true,
+
+			// More info https://github.com/hakimel/reveal.js#dependencies
+			dependencies: [{
+				src: 'plugin/markdown/marked.js'
+			}, {
+				src: 'plugin/markdown/markdown.js'
+			}, {
+				src: 'plugin/notes/notes.js',
+				async: true
+			}, {
+				src: 'plugin/highlight/highlight.js',
+				async: true,
+				callback: function () {
+					hljs.initHighlightingOnLoad();
+				}
+			}]
+		});
+	</script>
+</body>
+
+</html>

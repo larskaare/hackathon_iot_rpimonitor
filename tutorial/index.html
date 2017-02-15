@@ -16,6 +16,16 @@
 		link.type = 'text/css';
 		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
 		document.getElementsByTagName('head')[0].appendChild(link);
+
+		Reveal.initialize({
+			transition: 'slide',
+			dependencies: [
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true }
+			]	
+		});
+
+		
 	</script>
 </head>
 
@@ -44,22 +54,22 @@
 					<li class="fragment">Adding Motion detection</li>
 					<li class="fragment">Adding a camera</li>
 					<li class="fragment">Pushing data to the cloud</li>
-					<li class="fragment" style="color: red">You keep on experimenting!</li>
+					<li class="fragment" style="color: red">Keep on experimenting!</li>
 				</ol>
 			</section>
 			<section>
 				<h2>Fasten your seat belts!</h2>
 				<p>I want to get you to the "keep on experimenting" parts as fast as possible. This is where the good stuff happens!</p>
 			</section>
+			<section>
+					<p>
+					<blockquote>&ldquo;Every significant journey in computer science starts with a hello world!&rdquo;</blockquote>
+					</p>
+				</section>
 			<!-- Start of Arduino hello world tutorial -->
 			<section>
 				<section>
 					 <h1>Arduino -</br> hello world</h1>
-				</section>
-				<section>
-					<p>
-					<blockquote>&ldquo;Every significant journey in computer science starts with a hello world!&rdquo;</blockquote>
-					</p>
 				</section>
 				<section>
 					<p><a href="https://www.arduino.cc/" target="_blank">Arduino</a> - The Open Source electronics plattform</p>
@@ -69,15 +79,95 @@
 						<p style="font-size: 60%">A ton of sensors and examples available. </p>
 				</section>
 				<section>
-					<p>Connecting Laptop/IDE to Arduino</p>
+					<h2>Connecting Laptop/IDE to Arduino</h2>
+					<p>Using USB would be a good start</p>
+				</section>
+				<section>
+					<p>Start Arduino IDE</p>
+					<img width="10%" height="10%" src="https://blog.arduino.cc/wp-content/uploads/2013/07/Arduino_logo_pantone.png" alt="Arduino IDE Logo"></br>
+					<img src="./images/Arduino-about.png">
+				</section>		
+				<section>
 					<p>Making the internal led blink</p>
+					<table style="font-size: 80%">
+						<tr>
+							<td>
+								<ul>
+									<li>Verify that the board is connected (Tools->Board &amp; Tools->Port)
+									<li>Create a new sketch</li>
+									<li>Add code <a href="https://www.arduino.cc/en/Reference/HomePage" target="_blank">(Reference)</a></li>
+									<li>Verify &amp; Upload to Arduino</li>
+									<li>Disconnect, connect - executes program in memory</li>
+									<li>Can run stand-alone with batteries</li>
+								</ul>
+							</td>
+							<td>
+								 <img src="./images/Arduino-helloworld-1.png">
+							</td>
+						</tr>
+					</table>
+					
+				</section>
+				<section>
+					<pre><code class="hljs" data-trim contenteditabl style="font-size: 100%">
+void setup() {
+// put your setup code here, to run once:
+	pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+	// put your main code here, to run repeatedly:
+	//Set led to high, wait a second, set led to low, wait a second and then repeat
+	digitalWrite(LED_BUILTIN, HIGH);   
+	delay(1000);                       
+	digitalWrite(LED_BUILTIN, LOW);    
+	delay(1000);                       
+}
+					</code></pre>
 				</section>
 				<section>
 					<p>Adding a breadboard with led</p>
+					<p style="font-size: 50%">Put led on pin digital 13, led short-pin is negative</p>
+					<img width="60%" length="60%" src="./images/Arduino-simple-led.png">
+					<p>Breadboard - a versatile experimentation device</br>
+					</p> 
 				</section>
 				<section>
 					<p>Adding button, turning led on/off</p>
+					<p style="font-size: 50%">Put led on pin digital 9, button on digital pin 7</p>
+					<img width="50%" length="50%" src="./images/Arduino-simple-led-button.png">
+					</p>
 				</section>
+					<section>
+					<pre>
+int ledPin = 9;
+int buttonPin = 7;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  pinMode(buttonPin, INPUT);
+  digitalWrite(ledPin,LOW);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int buttonStatus = digitalRead(buttonPin);
+  if (buttonStatus == HIGH) {
+     digitalWrite(ledPin,HIGH);
+     //Serial.println("High");
+  } else {
+     digitalWrite(ledPin,LOW);
+     //Serial.println("Low");
+  }      
+}
+					</pre>
+					<pre><blockquote>'Tool->Serial monitor' for debugging</blockquote></pre>
+				</section>
+				<section>
+					<p>Task: Change Arduino logic to include state, know if led is on/off and change accordingly</p>
+					<p style="font-size: 75%">One press turns led on, the next turns led-off</p>
+				</section>
+	
 			</section>
 
 			<!-- Start of Raspberry PI hello world tutorial -->
@@ -97,7 +187,10 @@
 					<p style="font-size: 60%">A huge community, a lot of sensors and examples available. </p>
 				</section>
 				<section>
-					<p>Connecting peripherals and booting raspbian</p>
+					<h2>Connecting peripherals and booting raspbian</h2>
+					<p>HDMI to monitor, USB keyboard and mouse, MicroSD card loaded, USB Micro power adapter</p>
+				</section>
+				<section>				
 					<p>Logging in</p>
 					<p>Using X or terminal</p>
 				</section>
@@ -216,7 +309,7 @@
 					<p>Some suggestions</p>
 				</section>
 				<section>
-					<p>Add another sensor, like light or movements - push data to the cloud</p>
+					<p>Add another sensor, like temperature, light or movements - push data to the cloud</p>
 				</section>
 				<section>
 					<p>Change instrumentation on cloud side, utilize IOT-Hub &amp; Stream Analytics</p>

@@ -172,7 +172,7 @@ void loop() {
 
 			<!-- Start of Raspberry PI hello world tutorial -->
 			<section>
-				<section>
+				<section data-background="https://www.raspberrypi.org/wp-content/uploads/2015/08/raspberry-pi-logo.png">
 					<h1>Raspberry PI</br>- hello world</h1>
 				</section>
 				<section>
@@ -188,30 +188,57 @@ void loop() {
 				</section>
 				<section>
 					<h2>Connecting peripherals and booting raspbian</h2>
+					<img width="10%" height="10%" src="https://www.raspberrypi.org/wp-content/uploads/2015/08/raspberry-pi-logo.png">
 					<p>HDMI to monitor, USB keyboard and mouse, MicroSD card loaded, USB Micro power adapter</p>
-				</section>
-				<section>				
-					<p>Logging in</p>
-					<p>Using X or terminal</p>
+					<p><a href="https://www.raspberrypi.org/">https://www.raspberrypi.org/</a></p>
 				</section>
 				<section>
-					<p>We have cheated and pre-installed necessary software such as</p>
+						<h2>Logging in</h2>
+					<ul>
+						<li>Logging in using pi/"password"</li>
+						<li>Booting to Pixel (X) or terminal?</br>
+						<div style="color: red">sudo raspi-config"</div> or </br><div style="color: red">"berry->Preferences->Raspberry PI Configuration" to change</div></li>
+					</ul>				
+					
+				</section>
+				<section>
+					<h2>We have cheated</h2>
+					<p>and pre-installed stuff like</p>
 					<ul>
 						<li>Raspbian (debian based)</li>
 						<li>NodeJs</li>
+						<li>Docker</li>
 						<li>Wifi config</li>
-						<li>....</li>
 					</ul>
-					<p>A few words on security - this is a computer, having quite a few more attach vectors than the Arduino</p>
+					<p></p>
+					<div style="font-size: 90%">
+					A few words on security;<div style="color: red">this is a computer,</div> having quite a few more attach vectors than the Arduino
+					</div>
 				</section>
 				<section>
-					<p>Creating project folder, init git repository, init nodejs project</p>
+					<p>Using a terminal windows, we create a home (folder) for our project, </br>init git and node</p>
+					<pre><code class="hljs" data-triM>
+						cd
+						mkdir -p code/iotrocks
+						cd code/iotrocks
+						git init
+						npm init  (default on all questions)
+						touch index.js
+					</code></pre>
 				</section>
 				<section>
-					<p>Hello world form Rasperry PI - by NodeJs
-						<p>
-				</section>
+					<h2>Hello world from Rasperry PI &amp; NodeJs</h2>
+					<p>Edit index.js</p>
+					<pre><code class="hljs" data-triM>
+						console.log("Hello world");
+					</code></pre>
+					<p>Execute our nodejs hello world</p>
+					<pre><code class="hljs" data-triM>
+						node index.js
+					</code></pre>
+				</section>		
 			</section>
+			
 
 			<!-- Start of RPI + Arduino tutorial -->
 			<section>
@@ -219,19 +246,94 @@ void loop() {
 					<h2>Hello World!</br> Best regards from Raspberry PI &amp; Arduino</h2>
 				</section>
 				<section>
-					<p>Arduino &amp; and RPI = Happy Marriage?</p>
-					<p>Introducing Johnny5</p>
-					<p>Loading firmata into the Arduino</p>
+					<h2>Connect to wifi-network</h2>
+					<p>Use gui tool or edit</p><div style="color: cornflowerblue">/etc/wpa_supplicant/wpa_supplicant.conf</div>
+					<pre><code class="hljs" data-trim>
+						identity=""
+						password=""
+					</code></pre>
+					<p style="font-size: 60%">Remember sudo and "ifdown wlan0" and "ifup wlan0" to restart network interface</p>
 				</section>
 				<section>
-					<p>Hello world form RPI &amp; Arduino
-						<p>
-							<p>Using the set-up from part #1
-								<p>
-									<p>Register button activity and turn led on/off
-										<p>
+					<h2>Arduino &amp; and RPI = Happy Marriage?</h2>
 				</section>
+				<section>
+					<h2>Introducing</h2>
+					<a href="http://johnny-five.io/" target="_blank"><img width="80%" height="80%" src="http://johnny-five.io/img/static/johnny-five-fb.png"></a>
+				</section>
+				<section>
+					<h2>Loading firmata into the Arduino</h2>
+					<p style="font-size: 50%">Firmata is a protocol for communicating with microcontrollers from software on a computer (or smartphone/tablet, etc). The protocol can be implemented in firmware on any microcontroller architecture as well as software on any computer software package</p>
+					<ol>
+						<li>Start Arduino ide</li>
+						<li>Load Standard Firmata</br> "File->Examples->Firmata->StandardFirmata"</li>
+						<li>Upload code to Arduino</li>
+						<li>Connect Arduino to Raspberry PI</li>
+					</ol>
+				</section>
+				<section>
+					<p>Let us extend our RPI "hello world" to include Johnny-Five"</p>
+					<p>Edit index.js (geany index.js &amp;) to J5 and the <a href="http://johnny-five.io/api/led/" target="_blank">led</a></p>
+					<pre><code class="hljs" data-trim>
+var five = require("johnny-five");
+
+var board = new five.Board({
+	repl: false,
+	debug: false
+	});
+
+board.on("ready", function() {
+
+	var led = new five.Led(9);
+
+	led.on();
+
+});						
+					</code></pre>
+				</section>	
+				<section>
+					<p>Preparing johnny-five for node &amp; execute index.js</p>
+					<p style="font-size: 50%">(Standing in the project directory ~/code/iotrocks/)</p>
+					<pre><code class="hljs" data-trim>
+						npm install johnny-five --save
+						node index.js
+					</code></pre>
+					<p style="font-size: 50%">Be patient - it takes 1-2 seconds to turn the led on</p>
+				</section>
+				<section>
+					<p>Adding support for the <a href="http://johnny-five.io/api/button/" target="_blank">button</a></p>
+					<p style="font-size: 50%">(Alter the board.on function in index.js)</p>
+					<pre><code class="hljs" data-trim>
+board.on("ready", function() {
+	console.log("Board is ready");
+	var led = new five.Led(9);
+	var button = new five.Button({
+		pin: 7,
+		invert: true
+		});
+	led.off();
+	button.on("press", function() {
+		led.on();
+	});
+	button.on("release", function() {
+		led.off();
+	});
+});
+					</code></pre>
+					<p style="font-size: 50%">Run code and verify</p>
+				</section>
+				<section>
+					<p>Tasks:</p>
+					<ol>
+						<li>Change Arduino logic to include state, know if led is on/off and change accordingly</li>
+						<li>Add files to index in git</li>
+						<li>Create a .gitignore to exclude the node_modules/ folder</li>
+						<li>Do a git commit (and perhaps tell git about yourself)</li>
+					</ol>	
+					
+				</section>	
 			</section>
+			
 			<!-- Start of Adding a temperature sensor -->
 			<section>
 				<section>

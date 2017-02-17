@@ -1,2 +1,4 @@
-# hackathon_iot_rpimonitor
-A tutorial for IOT Hackathon - RaspberryPI Motion Monitor
+A IOT Hackaton Tutorial
+
+Project: Arduio + RPI + Sensor => Cloud
+

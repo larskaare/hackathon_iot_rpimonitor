@@ -45,17 +45,21 @@
 				</blockquote>
 			</section>
 			<section>
-				<h2>Tutorial</h2>
+				<section>
+					<h1>Agenda</h1>
+				</section>
+				<section>
 				<ol>
-					<li class="fragment">Hello world from Arduino</li>
-					<li class="fragment">Hello world from Raspberry PI</li>
-					<li class="fragment">Raspberry PI + Arduino</li>
-					<li class="fragment">Adding a temperature sensor</li>
-					<li class="fragment">Adding Motion detection</li>
-					<li class="fragment">Adding a camera</li>
-					<li class="fragment">Pushing data to the cloud</li>
-					<li class="fragment" style="color: red">Keep on experimenting!</li>
+					<li>Hello world from Arduino</li>
+					<li>Hello world from Raspberry PI</li>
+					<li>Raspberry PI + Arduino</li>
+					<li>Adding a temperature sensor</li>
+					<li>Adding a camera</li>
+					<li>Adding Motion detection</li>
+					<li>Pushing data to the cloud</li>
+					<li style="color: red">Keep on experimenting!</li>
 				</ol>
+			</section>	
 			</section>
 			<section>
 				<h2>Fasten your seat belts!</h2>
@@ -330,7 +334,6 @@ board.on("ready", function() {
 						<li>Add files to index in git</li>
 						<li>Do a git commit (and perhaps tell git about yourself)</li>
 					</ol>	
-					
 				</section>	
 			</section>
 			
@@ -342,38 +345,46 @@ board.on("ready", function() {
 					</p>
 				</section>
 				<section>
-					<p>About the sensor</p>
-				</section>
-				<section>
-					<p>Wiring</p>
-				</section>
-				<section>
-					<p>Code</p>
-				</section>
-			</section>
-			<!-- Start of Adding motion detection -->
-			<section>
-				<section>
-					<p>
-						<h1>Adding motion detection</h1>
+					<p>Dallas DS18B20</p>
+					<p>ACCURACY	+/- 0.5°C (from -10°C to +85°C)</br>
+					   SENSITIVITY RANGE -55°C to +125°C (-67°F to +257°F)
 					</p>
+					<img width="30%" height="30%" src="./images/keyes-ds18b20.jpg">
+					<p><a href="http://cdn.sparkfun.com/datasheets/Sensors/Temp/DS18B20.pdf" target="_blank">Spec sheet</a></p>
 				</section>
 				<section>
-					<p>About the sensor</p>
+					<p><a href="http://johnny-five.io/examples/temperature-ds18b20/" target="_blank">Wiring</a></p>
+					<img width="50%" length="50%" src="https://github.com/rwaldron/johnny-five/raw/master/docs/breadboard/temperature-ds18b20.png">
+					<p style="font-size: 70%">A few notes on wiring our sensor;</br> <font color="red">-</font> is ground, <font color="red">S</font> is signal - digital pin,</br> the middle pin is 5v</p>
 				</section>
 				<section>
-					<p>Wiring</p>
-				</section>
-				<section>
-					<p>Code</p>
-				</section>
+					<p style="font-size: 80%">Extend index.js with this code i the board.on function</p>
+					<pre><code class="hljs" data-trim>
+board.on("ready", function() {
+..
 
-				<section>
-					<p>Time to put stuff into github?</p>
+var temp = new five.Thermometer({
+	controller: "DS18B20",
+	pin: 2
+});
+..
+button.on("press", function() {
+	led.on();
+	console.log("Temperature " + temp.celsius + "C");
+});
+					</code></pre>
+					<p style="font-size: 60%">Run code and verify. Problems?</p>
 				</section>
+				<section>
+				<h2>Tasks:</h2>
+				<ol>
+					<li>Load <a href="https://github.com/firmata/ConfigurableFirmata" target=" blank"> configurable firmata</a> onto the Arduino</br>
+					<section style="font-size:50%">Hint: ConfigurableFirmata is on github</section></li>
+					<li>Run &amp; verify latest code</li>
+					<li>Add and commit to git</li>
+				</ol>	
+				</section>	
 			</section>
-
-
 
 			<!-- Start of Adding a camera -->
 			<section>
@@ -383,18 +394,157 @@ board.on("ready", function() {
 					</p>
 				</section>
 				<section>
-					<p>About the camera and the interface</p>
+					<p>We are using the <a href="https://www.raspberrypi.org/products/camera-module-v2/" target="_blank">on-board</a> camera interface on our Raspberry PI</p>
+					<img width="60%" height="60%" src="https://www.raspberrypi.org/wp-content/uploads/2016/02/Pi-Camera-web.jpg"></img>
+					<p style="font-size: 50%">6/8 mp sensor, high def video and photos. A lot of applicances and example code</p>
 				</section>
 				<section>
-					<p>Wiring</p>
+					<p>Wiring the camera</p>
+					<img width="60%" height="60%" src="https://www.raspberrypi.org/learning/getting-started-with-picamera/images/connect-camera.jpg">
+					<p style="font-size: 50%; color: red">Do a graceful shutdown of the RPI and disconnect power prior to connecting the camera!</p>
 				</section>
 				<section>
-					<p>Taking snapshots from the command line</p>
+					<p>Taking snapshots:</p>
+					<p>We have a lot of application and modules, for both Python and Nodejs to use the on-board camera</p>
+					<p><font color="red">raspistill</font> is a good command line utility for using the <a href="https://www.raspberrypi.org/documentation/raspbian/applications/camera.md" target="_blank">camera</a></p>
+					<p style="font-size: 50%">We have allready enabled the camera interface using raspi-config</p>
 				</section>
 				<section>
-					<p>Taking snapshots from our app</p>
+				<p>Adding camera support - step 1/2</p>
+					<p style="font-size: 80%">New declaration at top of index.js</p>
+					<pre><code class="hljs" data-trim>
+var snapshot = require("./snapshot.js");
+					</code></pre>
+					<p style="font-size: 80%">Extending button function in index.js</p>
+					<pre><code class="hljs" data-trim>
+button.on("press", function() {
+ led.on();
+ console.log("Temperature " + temp.celsius + "C");
+ snapshot.takeSnapshot(function callback(err) {
+  if (err) {
+   console.log('Unable to take camera snapshot ', err);
+  }
+ });
+});
+					</code></pre>
 				</section>
+				<section>
+				<p>Adding camera support - step 2/2</p>
+					<p style="font-size: 80%">Create a new file, <font color="red">snapshot.js</font></p>
+					<pre><code class="hljs" data-trim>
+var child_process = require('child_process');
+
+function takeSnapshot(cb) {
+    var timestamp = Date.now();
+    var filename = "/tmp/" + timestamp + "_snapshot";
+
+    var args = ['-o', filename, '--nopreview'];
+    var spawn = child_process.spawn('raspistill', args);
+
+    spawn.on('exit', function(code) {
+        console.log('A snapshot was save as ' + filename +
+		' with exit code, ' + code);
+    });
+}
+exports.takeSnapshot = takeSnapshot;
+					</code></pre>
+					<p style="font-size: 60%">Do a "npm install child_process --save" to include the new module in our eco-system</p>
+					</section>
+				<section>
+				<h2>Tasks:</h2>
+				<ol>
+					<li>Play around with command line arguments for raspistill</li>
+					<li>Add and commit to git</li>
+				</ol>	
+				</section>	
 			</section>
+
+			<!-- Start of Adding motion detection -->
+			<section>
+				<section>
+					<p>
+						<h1>Adding motion detection</h1>
+					</p>
+				</section>
+				<section>
+					<p>Say hello to the <a href="https://learn.adafruit.com/pir-passive-infrared-proximity-motion-sensor/how-pirs-work" target="_blank">PIR sensor</a></p>
+					<img width="60%" height="60%" src="./images/pir-sensor.jpg"></img>
+				</section>
+				<section>
+					<p><a href="https://www.adafruit.com/product/189" target="_blank">Wiring</a> the PIR sensor</p>
+					<img width="60%" height="60%" src="https://github.com/rwaldron/johnny-five/raw/master/docs/breadboard/motion.png">
+					<p style="font-size: 50%">Put the signal pin on digital pin 8</p>
+					<p style="font-size: 50%">Remove PIR lid to identify proper wiring</p>
+				</section>
+				<section>
+				<p>Adding code to support motions detection</p>
+					<p style="font-size: 80%">New declaration the board.on function</p>
+					<pre><code class="hljs" data-trim>
+var motion = new five.Motion(8);
+					</code></pre>
+					<p style="font-size: 80%">Adding code to motion triggers step 1/2 (board.on)</p>
+					<pre><code class="hljs" data-trim>
+motion.on("calibrated", function() {
+	console.log("Motion calibrated");
+});
+
+motion.on("motionend", function() {
+     console.log("Motion ended");
+     led.off();
+});
+
+					</code></pre>
+				</section>
+				<section>
+					<p style="font-size: 80%">Adding code to motion triggers step 2/2 (board.on)</p>
+					<pre><code class="hljs" data-trim>
+motion.on("motionstart", function() {
+ console.log("Motion detected");
+ led.on();
+ snapshot.takeSnapshot(function callback(err) {
+	if (err) {
+	 console.log('Unable to take camera snapshot ', err);
+	}
+  });
+});
+					</code></pre>
+				</section>
+				<section>
+				<h2>Tasks:</h2>
+				<ol>
+					<li>Run &amp; Verify code</li>
+					<li>Play around with sensitivity and timing on PIR sensor</li>
+					<li>Add and commit to git</li>
+				</ol>	
+				</section>	
+			</section>
+
+		<!-- Start of Pushing code to github -->
+		<section>
+			<section>
+				<h2>It's time to pur our code on github.com</h2>
+			</section>
+			<section>
+				<h2>Tasks:</h2>
+				<ol>
+					<li>Create a repository for you project on github.com - in the <font color="red">swbgo</font> organisation</li>
+					<li>Define the new remote for your local git project and push code to github</br>
+					<section style="font-size: 50%; color:blueviolet">Hint: We did a video on this in the developer community a few weeks ago - Yammer</section></li>
+					<li>You will, most likely, need to create and add <a href="https://help.github.com/articles/connecting-to-github-with-ssh/" target="_blank">ssh keys</a> to your github account</li>
+					<li>Push to github and verify</li>
+				</ol>	
+				</section>	
+				<section>
+					<p style="font-size: 80%">Some code lines</p>
+					<pre><code class="hljs" data-trim>
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+ssh-add ~/.ssh/id_rsa
+... add key to you github account						
+git remote add origin git@github.com:swbgo/"name of repo".git
+git push -u origin master
+					</code></pre>
+				</section>
+		</section>
 			<!-- Start of Pushing data to the cloud -->
 			<section>
 				<section>

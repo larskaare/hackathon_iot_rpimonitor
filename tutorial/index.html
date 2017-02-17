@@ -522,7 +522,7 @@ motion.on("motionstart", function() {
 		<!-- Start of Pushing code to github -->
 		<section>
 			<section>
-				<h2>It's time to pur our code on github.com</h2>
+				<h2>It's time to put our code on github.com</h2>
 			</section>
 			<section>
 				<h2>Tasks:</h2>
@@ -545,6 +545,7 @@ git push -u origin master
 					</code></pre>
 				</section>
 		</section>
+
 			<!-- Start of Pushing data to the cloud -->
 			<section>
 				<section>
@@ -553,11 +554,49 @@ git push -u origin master
 					</p>
 				</section>
 				<section>
-					<p>Sending Sensor data to Elastic Search</p>
+					<p>We are utilizing <a href="https://azure.microsoft.com/en-us/services/storage/" target="_blank">Azure Storage</a> - file storage</p>
+					<p>Our goal is to push the camera snapshot the cloud</p>
 				</section>
 				<section>
-					<p>Sending snapshots to Cloud Storage</p>
+					<h2>Sending snapshots to Cloud Storage</h2>
+					<p>We need to perform a few steps to prepare Azure</p>
+					<ol>
+						<li><a href="http://portal.azure.com" target="_blank">Create storage account in your resource group</a></li>
+						<li>Make a note of Account Name and Key (Access keys)</li>
+					</ol>
+					<p style="font-size: 60%">A word of wizdom - good cloud people are good janitors. Cleaning up and having good cloud hygiene is smart!</p>
 				</section>
+				<section>
+					<p>We have storage - it is time to prepare our app</p>
+					<p style="font-size: 80%">First step is to export environment variables that nodejs picks up to access the storage account</br>
+					It would be a good idea to put these into a text file.</br> <font color="red">KEEP THIS INFO OUT OF VERSION CONTOL</font></p>
+					<pre><code class="hljs" data-trim>
+export AZURE_STORAGE_ACCOUNT="account name"
+export AZURE_STORAGE_ACCESS_KEY="access key"
+					</code></pre>
+				</section>
+				<section>
+					<p>Next step is to include support for <a href="https://github.com/Azure/azure-storage-node" target="_blank">azure storage in nodejs</a></p>
+					<pre><code class="hljs" data-trim>
+npm install azure-storage --save
+					</code></pre>
+				</section>
+				<section>
+					<p>Adding code to our app ... manually takes too long</p>
+					<p style="font-size: 80%">..
+open the following files copy and paste
+					</code></pre>
+				</section>
+			
+
+
+
+
+
+				<section>
+					<p>Sending Sensor data to Elastic Search or some table storage, nosql?</p>
+				</section>
+				
 			</section>
 			<!-- Start of you keep on experimenting -->
 			<section>

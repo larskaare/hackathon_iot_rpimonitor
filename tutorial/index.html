@@ -34,19 +34,24 @@
 		<div class="slides">
 			<section>
 				<h1>IOT Hackathon</h1>
-				<p>Raspberry PI Monitor</p>
-				<p style="color: red"><q>Everyone &amp; Everything is connected</q></p>
+				<p>A RaspberryPI Monitor</p>
+				<p style="color: red"><q>IOT - Everyone &amp; Everything is connected</q></p>
 			</section>
 			<section>
 				<h2>Goal</h2>
 				<blockquote>
-					&ldquo;Starting from a Software Development Perspective, trigger and nurture curiosity towards IOT - technology, appliances,
+					&ldquo;By creating an example end-to-end eco-system, trigger and nurture curiosity towards IOT -</br> the technology, appliances,
 					impact, opportunities and risks.&rdquo;
 				</blockquote>
 			</section>
 			<section>
 				<section>
 					<h1>Agenda</h1>
+				</section>
+				<section>
+					<p>
+					<blockquote>&ldquo;Every significant journey in computer science starts with a hello world!&rdquo;</blockquote>
+					</p>
 				</section>
 				<section>
 				<ol>
@@ -63,13 +68,9 @@
 			</section>
 			<section>
 				<h2>Fasten your seat belts!</h2>
-				<p>I want to get you to the "keep on experimenting" parts as fast as possible. This is where the good stuff happens!</p>
+				<p>I want to get you to the "keep on experimenting" part as fast as possible. This is where the good stuff happens!</p>
 			</section>
-			<section>
-					<p>
-					<blockquote>&ldquo;Every significant journey in computer science starts with a hello world!&rdquo;</blockquote>
-					</p>
-				</section>
+			
 			<!-- Start of Arduino hello world tutorial -->
 			<section>
 				<section>
@@ -99,7 +100,8 @@
 								<ul>
 									<li>Verify that the board is connected (Tools->Board &amp; Tools->Port)
 									<li>Create a new sketch</li>
-									<li>Add code <a href="https://www.arduino.cc/en/Reference/HomePage" target="_blank">(Reference)</a></li>
+									<li>Add code <a href="https://www.arduino.cc/en/Reference/HomePage" target="_blank">(Reference)</a></br>
+									<font color="red">(Next slide)</font></li>
 									<li>Verify &amp; Upload to Arduino</li>
 									<li>Disconnect, connect - executes program in memory</li>
 									<li>Can run stand-alone with batteries</li>
@@ -115,13 +117,10 @@
 				<section>
 					<pre><code class="hljs" data-trim contenteditabl style="font-size: 100%">
 void setup() {
-// put your setup code here, to run once:
 	pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop() {
-	// put your main code here, to run repeatedly:
-	//Set led to high, wait a second, set led to low, wait a second and then repeat
 	digitalWrite(LED_BUILTIN, HIGH);   
 	delay(1000);                       
 	digitalWrite(LED_BUILTIN, LOW);    
@@ -131,14 +130,13 @@ void loop() {
 				</section>
 				<section>
 					<p>Adding a breadboard with led</p>
-					<p style="font-size: 50%">Put led on pin digital 13, led short-pin is negative</p>
+					<p style="font-size: 50%">Put led on pin digital 13, led short-pin is negative. 200-800K resistor.</br>No need to change any code</p>
 					<img width="60%" length="60%" src="./images/Arduino-simple-led.png">
-					<p>Breadboard - a versatile experimentation device</br>
-					</p> 
+					<p><a href="https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard" target="_blank">Breadboard</a> - a versatile experimentation device</br></p> 
 				</section>
 				<section>
-					<p>Adding button, turning led on/off</p>
-					<p style="font-size: 50%">Put led on pin digital 9, button on digital pin 7</p>
+					<p>Adding a button, turning led on/off</p>
+					<p style="font-size: 50%">Move led to digital 9, button on digital pin 7. 800K-1200K resistor.</p>
 					<img width="50%" length="50%" src="./images/Arduino-simple-led-button.png">
 					</p>
 				</section>
@@ -165,11 +163,11 @@ void loop() {
   }      
 }
 					</pre>
-					<pre><blockquote>'Tool->Serial monitor' for debugging</blockquote></pre>
+					<pre><blockquote style="color: red">'Tool->Serial monitor' for debugging</blockquote></pre>
 				</section>
 				<section>
 					<p>Task: Change Arduino logic to include state, know if led is on/off and change accordingly</p>
-					<p style="font-size: 75%">One press turns led on, the next turns led-off</p>
+					<p style="font-size: 75%">One push turns led on, the next turns led off</p>
 				</section>
 	
 			</section>
@@ -180,28 +178,28 @@ void loop() {
 					<h1>Raspberry PI</br>- hello world</h1>
 				</section>
 				<section>
-					<p><a href="https://www.raspberrypi.org/">RaspberryPI</a> - The Credit-card-sized computer</p>
+					<p><a href="https://www.raspberrypi.org/" target="_blank">RaspberryPI</a> - The Credit-card-sized computer</p>
 					<img width="40%" height="40%" src="https://www.element14.com/community/servlet/JiveServlet/showImage/102-80899-15-252356/Pi3+Breakout+Feb+29+2016.png"
 									alt="Raspberry PI V3 Model B">
 					<p style="font-size: 50%"><a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b/" target="_blank">RPI v3, Model B</a>: 1.2 Ghz
 						64-Bits Quad Core Arm CPU, Wifi, Bluetooth, 1 GB Ram, 4 Usb Ports, 40 GPIO Pins (only Digital), Full HDMI Support,
-						Ethernet port, Audio Jack, Micro SD storage, Own video graphics core </p>
+						Ethernet port, Audio Jack, Micro SD storage,</br>Own video graphics core </p>
 					<p style="font-size: 60%"><a href="https://www.raspberrypi.org/downloads/" target="_blank">Supporting</a> multiple Linux versions and Windows
 						10 IOT Core </p>
-					<p style="font-size: 60%">A huge community, a lot of sensors and examples available. </p>
+					<p style="font-size: 60%">A huge community, a lot of appliances, a lot of sensors and examples available. </p>
 				</section>
 				<section>
 					<h2>Connecting peripherals and booting raspbian</h2>
 					<img width="10%" height="10%" src="https://www.raspberrypi.org/wp-content/uploads/2015/08/raspberry-pi-logo.png">
 					<p>HDMI to monitor, USB keyboard and mouse, MicroSD card loaded, USB Micro power adapter</p>
-					<p><a href="https://www.raspberrypi.org/">https://www.raspberrypi.org/</a></p>
+					<p><a href="https://www.raspberrypi.org/" target="_blank">https://www.raspberrypi.org/</a></p>
 				</section>
 				<section>
 						<h2>Logging in</h2>
 					<ul>
 						<li>Logging in using pi/"password"</li>
 						<li>Booting to Pixel (X) or terminal?</br>
-						<div style="color: red">sudo raspi-config"</div> or </br><div style="color: red">"berry->Preferences->Raspberry PI Configuration" to change</div></li>
+						<div style="color: red">sudo raspi-config</div> or </br><div style="color: red">"berry->Preferences->Raspberry PI Configuration" to change</div></li>
 					</ul>				
 					
 				</section>
@@ -210,6 +208,7 @@ void loop() {
 					<p>and pre-installed stuff like</p>
 					<ul>
 						<li>Raspbian (debian based)</li>
+						<li>Done basic config, like lokale, enabling camera++</li>
 						<li>NodeJs</li>
 						<li>Docker</li>
 						<li>Wifi config</li>
@@ -220,7 +219,7 @@ void loop() {
 					</div>
 				</section>
 				<section>
-					<p>Using a terminal windows, we create a home (folder) for our project, </br>init git and node</p>
+					<p>Using a terminal window, we create a home (folder) for our project, do </br>init git and node</p>
 					<pre><code class="hljs" data-triM>
 						cd
 						mkdir -p code/iotrocks
@@ -231,7 +230,7 @@ void loop() {
 					</code></pre>
 				</section>
 				<section>
-					<h2>Hello world from Rasperry PI &amp; NodeJs</h2>
+					<h2>Hello world from Rasperry PI &amp; <a href="https://nodejs.org/en/" target="_blank">NodeJs</a></h2>
 					<p>Edit index.js</p>
 					<pre><code class="hljs" data-triM>
 						console.log("Hello world");
@@ -256,7 +255,7 @@ void loop() {
 						identity=""
 						password=""
 					</code></pre>
-					<p style="font-size: 60%">Remember sudo and "ifdown wlan0" and "ifup wlan0" to restart network interface</p>
+					<p style="font-size: 60%">Remember "ifdown wlan0" and "ifup wlan0" to restart network interface (use sudo)</p>
 				</section>
 				<section>
 					<h2>Arduino &amp; and RPI = Happy Marriage?</h2>
@@ -276,8 +275,8 @@ void loop() {
 					</ol>
 				</section>
 				<section>
-					<p>Let us extend our RPI "hello world" to include Johnny-Five"</p>
-					<p>Edit index.js (geany index.js &amp;) to J5 and the <a href="http://johnny-five.io/api/led/" target="_blank">led</a></p>
+					<p>Let us extend our RPI "hello world" to include Johnny-Five</p>
+					<p>Edit index.js (geany index.js &amp;) to use J5 and the <a href="http://johnny-five.io/api/led/" target="_blank">led</a></p>
 					<pre><code class="hljs" data-trim>
 var five = require("johnny-five");
 
@@ -296,13 +295,13 @@ board.on("ready", function() {
 					</code></pre>
 				</section>	
 				<section>
-					<p>Preparing johnny-five for node &amp; execute index.js</p>
+					<p>Preparing johnny-five for node &amp; executing index.js</p>
 					<p style="font-size: 50%">(Standing in the project directory ~/code/iotrocks/)</p>
 					<pre><code class="hljs" data-trim>
 						npm install johnny-five --save
 						node index.js
 					</code></pre>
-					<p style="font-size: 50%">Be patient - it takes 1-2 seconds to turn the led on</p>
+					<p style="font-size: 50%">Be patient - it takes 1-2 seconds to initialize board and turn the led on</p>
 				</section>
 				<section>
 					<p>Adding support for the <a href="http://johnny-five.io/api/button/" target="_blank">button</a></p>
@@ -373,14 +372,14 @@ button.on("press", function() {
 	console.log("Temperature " + temp.celsius + "C");
 });
 					</code></pre>
-					<p style="font-size: 60%">Run code and verify. Problems?</p>
+					<p style="font-size: 60%">Run code and verify.<font color="red"> Problems</font>?</p>
 				</section>
 				<section>
 				<h2>Tasks:</h2>
 				<ol>
 					<li>Load <a href="https://github.com/firmata/ConfigurableFirmata" target=" blank"> configurable firmata</a> onto the Arduino</br>
 					<section style="font-size:50%">Hint: ConfigurableFirmata is on github</section></li>
-					<li>Run &amp; verify latest code</li>
+					<li>Run &amp; verify latest app code (index.js)</li>
 					<li>Add and commit to git</li>
 				</ol>	
 				</section>	
@@ -448,7 +447,7 @@ function takeSnapshot(cb) {
 }
 exports.takeSnapshot = takeSnapshot;
 					</code></pre>
-					<p style="font-size: 60%">Do a "npm install child_process --save" to include the new module in our eco-system</p>
+					<p style="font-size: 60%">Do a <font color="cadetblue">npm install child_process --save</font> to include the new module in our eco-system</p>
 					</section>
 				<section>
 				<h2>Tasks:</h2>
@@ -478,11 +477,11 @@ exports.takeSnapshot = takeSnapshot;
 				</section>
 				<section>
 				<p>Adding code to support motions detection</p>
-					<p style="font-size: 80%">New declaration the board.on function</p>
+					<p style="font-size: 80%">New declaration in the board.on function</p>
 					<pre><code class="hljs" data-trim>
 var motion = new five.Motion(8);
 					</code></pre>
-					<p style="font-size: 80%">Adding code to motion triggers step 1/2 (board.on)</p>
+					<p style="font-size: 80%">Adding code to motion triggered events step 1/2 (board.on)</p>
 					<pre><code class="hljs" data-trim>
 motion.on("calibrated", function() {
 	console.log("Motion calibrated");
@@ -496,7 +495,7 @@ motion.on("motionend", function() {
 					</code></pre>
 				</section>
 				<section>
-					<p style="font-size: 80%">Adding code to motion triggers step 2/2 (board.on)</p>
+					<p style="font-size: 80%">Adding code to motion triggered events 2/2 (board.on)</p>
 					<pre><code class="hljs" data-trim>
 motion.on("motionstart", function() {
  console.log("Motion detected");
@@ -555,7 +554,7 @@ git push -u origin master
 				</section>
 				<section>
 					<p>We will utilize <a href="https://azure.microsoft.com/en-us/services/storage/" target="_blank">Azure Storage</a> - file storage</p>
-					<p>Our goal is to push the camera snapshots the cloud</p>
+					<p>Our goal is to push the camera snapshots into the cloud - scary stuff!</p>
 				</section>
 				<section>
 					<h2>Sending snapshots to Cloud Storage</h2>
@@ -599,7 +598,9 @@ var directory = "";
 				<h2>Tasks:</h2>
 				<ol>
 					<li>Run code, verify that snapshots are available in Azure file storage</li>
-					<li>Commit changes to git and push to remote repository on github.com</li>
+					<li>Commit changes to git and push to remote repository on github.com
+						</br><font color="red" size="4">Again, verify that access keys++ are not included in the repo</font>
+					</li>
 				</ol>	
 				</section>	
 				<section>
@@ -614,6 +615,7 @@ var directory = "";
 						<li><a href="http://portal.azure.com" target="_blank">Create a DocumentDB in your resource group</a></li>
 						<li>Make a note of URI and Primary Key</li>
 					</ol>
+					<p style="font-size: 60%">A word of wizdom - It is a good practice to read up on the service description.</br>An early focus on security is smart!</p>
 				</section>
 				<section>
 					<p>We have a home for sensor data - it is time to prepare our app</p>
@@ -634,56 +636,54 @@ npm install documentdb --save
 					<p>Again, adding code to our app ...</br> takes too much time</p>
 					<p style="font-size: 80%">Open <a href="https://github.com/larskaare/hackathon_iot_rpimonitor/tree/master/codeexamples/azure_storage" target="_blank">link</a> - copy &amp; paste (3 files) </p>
 					<pre><code class="hljs" data-trim>
-https://github.com/larskaare/hackathon_iot_rpimonitor/tree/master/codeexamples/azure_storage
+https://github.com/larskaare/hackathon_iot_rpimonitor/tree/master/codeexamples/azure_documentdbgoogle
  alternative
-https://goo.gl/hFIl6j
+https://goo.gl/o3NuFQ
 					</code></pre>
 					<p>Customize vars in azdocument.js</p>
-					<p>Documents are part of a collection, a database holds multiple collections</p>
+					<p style="font-size: 60%">Documents are part of a collection, a database holds multiple collections</p>
 					<pre><code class="hljs" data-trim>
 var databaseName = '';
 var collectionName = '';
 					</code></pre>
 				</section>
-
-
-
 				<section>
-					<p>Sending Sensor data to Elastic Search or some table storage, nosql?
-					create document data
-					npm install documentdb + guid
-					..
-					env variables
-					sette egne variabler
-					..
-					.. copy code
-					</p>
-				</section>
-				
+				<h2>Tasks:</h2>
+				<ol>
+					<li>Run code, verify that sensor data (temperature) are available in yor Azure DocumentDB</li>
+					<li>Commit changes to git and push to remote repository on github.com</li>
+				</ol>	
+				</section>				
 			</section>
+
 			<!-- Start of you keep on experimenting -->
 			<section>
 				<section>
-					<h2 style="color: red">You keep on experimenting!</h2>
+					<h2 style="color: red">Keep on experimenting!</h2>
+					<p style="font-size: 40%">It is up to you what to do next :)</p>
 				</section>
 				<section>
 					<p>Some suggestions</p>
 				</section>
 				<section>
-					<p>Add another sensor, like temperature, light or movements - push data to the cloud</p>
+					<p>Add another sensor, like light or movements -</br> push data to the cloud</p>
 				</section>
 				<section>
-					<p>Change instrumentation on cloud side, utilize IOT-Hub &amp; Stream Analytics</p>
+					<p>Change instrumentation on cloud side,</br> utilize IOT-Hub &amp; Stream Analytics</p>
+					<p>Control device using IOT Hub SDK</p>
 				</section>
 				<section>
 					<p>Re-Write app to utilize Python rather than NodeJs</p>
 					<p>With, or without, support from the Arduino</p>
 				</section>
 				<section>
-					<p>Use other tools to capture and visualize data (like InfluxDB + Graphana)</p>
+					<p>Use other tools to capture and visualize data</br>(like InfluxDB + Graphana)</p>
 				</section>
 				<section>
-					<p style="font-size: 70%">Create a web application to serve control device and show snapshots. Potential features:
+					<p>Use PowerBI</br> to Analyse &amp; and Visualise sensor data</p>
+				</section>
+				<section>
+					<p style="font-size: 70%">Create a web application to control the device and show snapshots.</br>Potential features:
 						<ul style="font-size: 50%">
 							<li>Show device status</li>
 							<li>Turn motion detection on/off</li>
@@ -698,10 +698,39 @@ var collectionName = '';
 				<section>
 					<p style="font-size: 70%">Create web application which steams live video &amp; sensor data from device</p>
 				</section>
+				<section>
+					<p style="font-size: 110%">Up the game and focus on managing huge amounts of sensor data</p>
+					<ul style="font-size: 80%">
+						<li>Create simulator app that generates fake sensor data</li>
+						<li>Scale the fake app using Docker -</br> sending +10K messages per minute</li>
+						<li>Send data to the cloud using the IOT-Hub</li>
+						<li>Process data using Stream Analytics</li>
+						<li>Eksperiment with various load patterns</li>
+						<li>Get insight into cost of scaling</li>
+					</ul>
+				</section>
+				<section>
+					<p>From a security perspective, explore the device, the app, the cloud services etc used in our example</p>
+				</section>
+				<section>
+					<p>Focus on the native Arduino - and it's capabilities</p>
+				</section>
+
+				<section>
+					<p style="font-size: 70%">Re-write the example app into a piece of art,</br>like any decent craftman would have done.</p>
+				</section>
 			</section>
 			<!-- Start of Share from your journey -->
 			<section>
-				<h1 style="color: cadetblue">Share from your journey!</h1>
+				<section>
+					<h1 style="color: cadetblue">... please remember to </h1>
+				</section>
+				<section>
+					<h1 style="color: cadetblue">share from your journey!</h1>
+				</section>
+				<section>
+					<p style="color: cadetblue">"Software Development" on Yammer -</br> or even on Twitter?</p>
+				</section>
 			</section>
 		</div>
 	</div>

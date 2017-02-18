@@ -554,15 +554,15 @@ git push -u origin master
 					</p>
 				</section>
 				<section>
-					<p>We are utilizing <a href="https://azure.microsoft.com/en-us/services/storage/" target="_blank">Azure Storage</a> - file storage</p>
-					<p>Our goal is to push the camera snapshot the cloud</p>
+					<p>We will utilize <a href="https://azure.microsoft.com/en-us/services/storage/" target="_blank">Azure Storage</a> - file storage</p>
+					<p>Our goal is to push the camera snapshots the cloud</p>
 				</section>
 				<section>
 					<h2>Sending snapshots to Cloud Storage</h2>
 					<p>We need to perform a few steps to prepare Azure</p>
 					<ol>
 						<li><a href="http://portal.azure.com" target="_blank">Create storage account in your resource group</a></li>
-						<li>Make a note of Account Name and Key (Access keys)</li>
+						<li>Make a note of Account Name and Key</br> (Access keys)</li>
 					</ol>
 					<p style="font-size: 60%">A word of wizdom - good cloud people are good janitors. Cleaning up and having good cloud hygiene is smart!</p>
 				</section>
@@ -582,19 +582,82 @@ npm install azure-storage --save
 					</code></pre>
 				</section>
 				<section>
-					<p>Adding code to our app ... manually takes too long</p>
-					<p style="font-size: 80%">..
-open the following files copy and paste
+					<p>Adding code to our app ... takes too long to type ...</p>
+					<p style="font-size: 80%">Open <a href="https://github.com/larskaare/hackathon_iot_rpimonitor/tree/master/codeexamples/azure_storage" target="_blank">link</a> - copy &amp; paste (3 files) </p>
+					<pre><code class="hljs" data-trim>
+https://github.com/larskaare/hackathon_iot_rpimonitor/tree/master/codeexamples/azure_storage
+ alternative
+https://goo.gl/hFIl6j
+					</code></pre>
+					<p>Customize vars in azstorage.js</p>
+					<pre><code class="hljs" data-trim>
+var sharename = "";
+var directory = "";
 					</code></pre>
 				</section>
-			
-
-
+				<section>
+				<h2>Tasks:</h2>
+				<ol>
+					<li>Run code, verify that snapshots are available in Azure file storage</li>
+					<li>Commit changes to git and push to remote repository on github.com</li>
+				</ol>	
+				</section>	
+				<section>
+					<p>We will utilize <a href="https://azure.microsoft.com/en-us/services/documentdb/" target="_blank">Azure DocumentDB</a> - </br>to store sensor data</p>
+					<p>We will use the NodeJs SDK - rather than REST to communicate with DocumentDB</p>
+					<p>DocumentDB is a NoSql database.</br>Information is stored in JSON documents</p>
+				</section>
+				<section>
+					<h2>Sending sensor data to DocumentDB</h2>
+					<p>We need to perform a few steps to prepare Azure</p>
+					<ol>
+						<li><a href="http://portal.azure.com" target="_blank">Create a DocumentDB in your resource group</a></li>
+						<li>Make a note of URI and Primary Key</li>
+					</ol>
+				</section>
+				<section>
+					<p>We have a home for sensor data - it is time to prepare our app</p>
+					<p style="font-size: 80%">First step is to export environment variables that nodejs picks up to access the database</br>
+					It would be a good idea to put these into a text file.</br> <font color="red">KEEP THIS INFO OUT OF VERSION CONTOL</font></p>
+					<pre><code class="hljs" data-trim>
+export AZURE_DOCUMENTDB_HOST="URI"
+export AZURE_DOCUMENTDB_MASTERKEY="primary key"
+					</code></pre>
+				</section>
+				<section>
+					<p>Next step is to include support for <a href="https://github.com/Azure/azure-documentdb-node" target="_blank"></br>Azure DocumentDB in nodejs</a></p>
+					<pre><code class="hljs" data-trim>
+npm install documentdb --save
+					</code></pre>
+				</section>
+				<section>
+					<p>Again, adding code to our app ...</br> takes too much time</p>
+					<p style="font-size: 80%">Open <a href="https://github.com/larskaare/hackathon_iot_rpimonitor/tree/master/codeexamples/azure_storage" target="_blank">link</a> - copy &amp; paste (3 files) </p>
+					<pre><code class="hljs" data-trim>
+https://github.com/larskaare/hackathon_iot_rpimonitor/tree/master/codeexamples/azure_storage
+ alternative
+https://goo.gl/hFIl6j
+					</code></pre>
+					<p>Customize vars in azdocument.js</p>
+					<p>Documents are part of a collection, a database holds multiple collections</p>
+					<pre><code class="hljs" data-trim>
+var databaseName = '';
+var collectionName = '';
+					</code></pre>
+				</section>
 
 
 
 				<section>
-					<p>Sending Sensor data to Elastic Search or some table storage, nosql?</p>
+					<p>Sending Sensor data to Elastic Search or some table storage, nosql?
+					create document data
+					npm install documentdb + guid
+					..
+					env variables
+					sette egne variabler
+					..
+					.. copy code
+					</p>
 				</section>
 				
 			</section>

@@ -34,7 +34,7 @@
 		<div class="slides">
 			<section>
 				<h1>IOT Hackathon</h1>
-				<p>A RaspberryPI Monitor</p>
+				<p>A RaspberryPI Surveillance Monitor</p>
 				<p style="color: red"><q>IOT - Everyone &amp; Everything is connected</q></p>
 			</section>
 			<section>
@@ -86,6 +86,7 @@
 				<section>
 					<h2>Connecting Laptop/IDE to Arduino</h2>
 					<p>Using USB would be a good start</p>
+					<p style="font-size: 50%">And hopefully it will not be a security issue</p>
 				</section>
 				<section>
 					<p>Start Arduino IDE</p>
@@ -208,7 +209,7 @@ void loop() {
 					<p>and pre-installed stuff like</p>
 					<ul>
 						<li>Raspbian (debian based)</li>
-						<li>Done basic config, like lokale, enabling camera++</li>
+						<li>Done basic config, like locale, enabling camera++</li>
 						<li>NodeJs</li>
 						<li>Docker</li>
 						<li>Wifi config</li>
@@ -219,7 +220,7 @@ void loop() {
 					</div>
 				</section>
 				<section>
-					<p>Using a terminal window, we create a home (folder) for our project, do </br>init git and node</p>
+					<p>Using a terminal window, we create a home (folder) for our project and</br>init git and node</p>
 					<pre><code class="hljs" data-triM>
 						cd
 						mkdir -p code/iotrocks
@@ -354,7 +355,8 @@ board.on("ready", function() {
 				<section>
 					<p><a href="http://johnny-five.io/examples/temperature-ds18b20/" target="_blank">Wiring</a></p>
 					<img width="50%" length="50%" src="https://github.com/rwaldron/johnny-five/raw/master/docs/breadboard/temperature-ds18b20.png">
-					<p style="font-size: 70%">A few notes on wiring our sensor;</br> <font color="red">-</font> is ground, <font color="red">S</font> is signal - digital pin,</br> the middle pin is 5v</p>
+					<p style="font-size: 70%">A few notes on wiring our sensor;</br> <font color="red">-</font> is ground,
+					 <font color="red">S</font> is signal - digital pin,</br> the middle pin is 5v. Use a 4-5k resistor.</p>
 				</section>
 				<section>
 					<p style="font-size: 80%">Extend index.js with this code i the board.on function</p>
@@ -560,7 +562,8 @@ git push -u origin master
 					<h2>Sending snapshots to Cloud Storage</h2>
 					<p>We need to perform a few steps to prepare Azure</p>
 					<ol>
-						<li><a href="http://portal.azure.com" target="_blank">Create storage account in your resource group</a></li>
+						<li><a href="http://portal.azure.com" target="_blank">Create a storage account in your resource group</a></br>
+						<section style="font-size: 50%">(Demo will be given)</section></li>
 						<li>Make a note of Account Name and Key</br> (Access keys)</li>
 					</ol>
 					<p style="font-size: 60%">A word of wizdom - good cloud people are good janitors. Cleaning up and having good cloud hygiene is smart!</p>
@@ -612,7 +615,8 @@ var directory = "";
 					<h2>Sending sensor data to DocumentDB</h2>
 					<p>We need to perform a few steps to prepare Azure</p>
 					<ol>
-						<li><a href="http://portal.azure.com" target="_blank">Create a DocumentDB in your resource group</a></li>
+						<li><a href="http://portal.azure.com" target="_blank">Create a DocumentDB in your resource group</a></br>
+						<section style="font-size: 50%">(Demo will be given)</section></li>
 						<li>Make a note of URI and Primary Key</li>
 					</ol>
 					<p style="font-size: 60%">A word of wizdom - It is a good practice to read up on the service description.</br>An early focus on security is smart!</p>

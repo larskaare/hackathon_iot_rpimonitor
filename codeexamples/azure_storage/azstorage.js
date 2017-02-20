@@ -20,7 +20,7 @@ exports.azinit = azinit;
 
 function sendsnaptoaz(fname, sname) {
 	console.log("saving " + fname + " to azure");
-	fileService.createFileFromLocalFile(sharename, 'snapshots', sname, fname, function (error, result, response) {
+	fileService.createFileFromLocalFile(sharename, directory, sname, fname, function (error, result, response) {
 		if (!error) {
 			console.log(fname + " uploaded to Azure Storage");
 		} else {

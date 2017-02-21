@@ -540,6 +540,7 @@ motion.on("motionstart", function() {
 					<pre><code class="hljs" data-trim>
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ssh-add ~/.ssh/id_rsa
+... we recommend using a password for the ssh key
 ... add key to you github account						
 git remote add origin git@github.com:swbgo/"name of repo".git
 git push -u origin master
@@ -717,6 +718,10 @@ var collectionName = '';
 				<section>
 					<p>From a security perspective, explore the device, the app, the cloud services etc used in our example</p>
 				</section>
+				<section>
+					<p>Send the snapshot to external api's for processing (could determine content, faces, moods ++)</p>
+				</section>
+
 				<section>
 					<p>Focus on the native Arduino - and it's capabilities</p>
 				</section>

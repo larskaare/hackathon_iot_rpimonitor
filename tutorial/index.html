@@ -68,7 +68,7 @@
 			</section>
 			<section>
 				<h2>Fasten your seat belts!</h2>
-				<p>I want to get you to the "keep on experimenting" part as fast as possible. This is where the good stuff happens!</p>
+				<p>I want to get you to the "keep on experimenting" part as fast as possible. This is where the brilliant stuff happens!</p>
 			</section>
 			
 			<!-- Start of Arduino hello world tutorial -->
@@ -110,6 +110,7 @@
 							</td>
 							<td>
 								 <img src="./images/Arduino-helloworld-1.png">
+								 <p style="font-size: 50%">(lab-1)</p>
 							</td>
 						</tr>
 					</table>
@@ -131,7 +132,7 @@ void loop() {
 				</section>
 				<section>
 					<p>Adding a breadboard with led</p>
-					<p style="font-size: 50%">Put led on pin digital 13, led short-pin is negative. 200-800K resistor.</br>No need to change any code</p>
+					<p style="font-size: 50%">Put led on pin digital 13, led short-pin is negative. 1K resistor.</br>No need to change any code</p>
 					<img width="60%" length="60%" src="./images/Arduino-simple-led.png">
 					<p><a href="https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard" target="_blank">Breadboard</a> - a versatile experimentation device</br></p> 
 				</section>
@@ -139,7 +140,8 @@ void loop() {
 					<p>Adding a button, turning led on/off</p>
 					<p style="font-size: 50%">Move led to digital 9, button on digital pin 7. 1K resistor.</p>
 					<img width="50%" length="50%" src="./images/Arduino-simple-led-button.png">
-					</p>
+					<p style="font-size: 50%">(lab-2)</p>
+
 				</section>
 					<section>
 					<pre>
@@ -221,6 +223,7 @@ void loop() {
 				</section>
 				<section>
 					<p>Using a terminal window, we create a home (folder) for our project and</br>init git and node</p>
+					<p style="font-size: 50%">(Use prefix for folder name, like "abc-iotrocks")</p
 					<pre><code class="hljs" data-triM>
 						cd
 						mkdir -p code/iotrocks
@@ -240,6 +243,7 @@ void loop() {
 					<pre><code class="hljs" data-triM>
 						node index.js
 					</code></pre>
+				    <p style="font-size: 50%">(lab-3)</p>
 				</section>		
 			</section>
 			
@@ -271,7 +275,10 @@ void loop() {
 					<ol>
 						<li>Start Arduino ide</li>
 						<li>Load Standard Firmata</br> "File->Examples->Firmata->StandardFirmata"</li>
-						<li>Upload code to Arduino</li>
+						<li>Upload code to Arduino
+							<p style="font-size: 50%">Tools->Port to select usb port to Arduino</p>
+
+						</li>
 						<li>Connect Arduino to Raspberry PI</li>
 					</ol>
 				</section>
@@ -294,6 +301,7 @@ board.on("ready", function() {
 
 });						
 					</code></pre>
+					<p style="font-size: 50%">(lab-4)</p>
 				</section>	
 				<section>
 					<p>Preparing johnny-five for node &amp; executing index.js</p>
@@ -324,12 +332,14 @@ board.on("ready", function() {
 	});
 });
 					</code></pre>
-					<p style="font-size: 50%">Run code and verify</p>
+					<p style="font-size: 50%">Run code and verify (lab-5)</p>
 				</section>
 				<section>
 					<h2>Tasks:</h2>
 					<ol>
-						<li>Change Arduino logic to include state, know if led is on/off and change accordingly</li>
+						<li>Change Arduino logic to include state, know if led is on/off and change accordingly
+							<p style="font-size: 50%">(Hint: Explore J5 api)</p>
+						</li>
 						<li>Create a .gitignore to exclude the node_modules/ folder</li>
 						<li>Add files to index in git</li>
 						<li>Do a git commit (and perhaps tell git about yourself)</li>
@@ -356,7 +366,7 @@ board.on("ready", function() {
 					<p><a href="http://johnny-five.io/examples/temperature-ds18b20/" target="_blank">Wiring</a></p>
 					<img width="50%" length="50%" src="https://github.com/rwaldron/johnny-five/raw/master/docs/breadboard/temperature-ds18b20.png">
 					<p style="font-size: 70%">A few notes on wiring our sensor;</br> <font color="red">-</font> is ground,
-					 <font color="red">S</font> is signal - digital pin,</br> the middle pin is 5v. Use a 4-5k resistor.</p>
+					 <font color="red">S</font> is signal - digital pin,</br> the middle pin is 5v. Use a 10k resistor.</p>
 				</section>
 				<section>
 					<p style="font-size: 80%">Extend index.js with this code i the board.on function</p>
@@ -374,6 +384,7 @@ button.on("press", function() {
 	console.log("Temperature " + temp.celsius + "C");
 });
 					</code></pre>
+					<p style="font-size: 50%">(lab-6)</p>
 					<p style="font-size: 60%">Run code and verify.<font color="red"> Problems</font>?</p>
 				</section>
 				<section>
@@ -428,6 +439,7 @@ button.on("press", function() {
  });
 });
 					</code></pre>
+						<p style="font-size: 50%">(lab-7)</p>
 				</section>
 				<section>
 				<p>Adding camera support - step 2/2</p>
@@ -449,7 +461,8 @@ function takeSnapshot(cb) {
 }
 exports.takeSnapshot = takeSnapshot;
 					</code></pre>
-					<p style="font-size: 60%">Do a <font color="cadetblue">npm install child_process --save</font> to include the new module in our eco-system</p>
+					<p style="font-size: 60%">Do a <font color="cadetblue">npm install child_process --save</font> to include the new module in our eco-system
+					</br>Run and verify code</p>
 					</section>
 				<section>
 				<h2>Tasks:</h2>
@@ -495,6 +508,7 @@ motion.on("motionend", function() {
 });
 
 					</code></pre>
+						<p style="font-size: 50%">(lab-8)</p>
 				</section>
 				<section>
 					<p style="font-size: 80%">Adding code to motion triggered events 2/2 (board.on)</p>
@@ -528,7 +542,7 @@ motion.on("motionstart", function() {
 			<section>
 				<h2>Tasks:</h2>
 				<ol>
-					<li>Create a repository for you project on github.com - in the <font color="red">swbgo</font> organisation</li>
+					<li>Create a repository for you project on github.com - in the <font color="red">swsvg</font> organisation</li>
 					<li>Define the new remote for your local git project and push code to github</br>
 					<section style="font-size: 50%; color:blueviolet">Hint: We did a video on this in the developer community a few weeks ago - Yammer</section></li>
 					<li>You will, most likely, need to create and add <a href="https://help.github.com/articles/connecting-to-github-with-ssh/" target="_blank">ssh keys</a> to your github account</li>
@@ -542,7 +556,7 @@ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ssh-add ~/.ssh/id_rsa
 ... we recommend using a password for the ssh key
 ... add key to you github account						
-git remote add origin git@github.com:swbgo/"name of repo".git
+git remote add origin git@github.com:swsvg/"name of repo".git
 git push -u origin master
 					</code></pre>
 				</section>
@@ -567,7 +581,7 @@ git push -u origin master
 						<section style="font-size: 50%">(Demo will be given)</section></li>
 						<li>Make a note of Account Name and Key</br> (Access keys)</li>
 					</ol>
-					<p style="font-size: 60%">A word of wizdom - good cloud people are good janitors. Cleaning up and having good cloud hygiene is smart!</p>
+					<p style="font-size: 60%">A word of wizdom - good cloud people are good janitors.</br>Cleaning up and having good cloud hygiene is smart!</p>
 				</section>
 				<section>
 					<p>We have storage - it is time to prepare our app</p>
@@ -586,7 +600,7 @@ npm install azure-storage --save
 				</section>
 				<section>
 					<p>Adding code to our app ... takes too long to type ...</p>
-					<p style="font-size: 80%">Open <a href="https://github.com/larskaare/hackathon_iot_rpimonitor/tree/master/codeexamples/azure_storage" target="_blank">link</a> - copy &amp; paste (3 files) </p>
+					<p style="font-size: 80%">Open lab-9 <a href="https://github.com/larskaare/hackathon_iot_rpimonitor/tree/master/codeexamples/azure_storage" target="_blank">link</a> - copy &amp; paste (3 files) </p>
 					<pre><code class="hljs" data-trim>
 https://github.com/larskaare/hackathon_iot_rpimonitor/tree/master/codeexamples/azure_storage
  alternative
@@ -640,7 +654,7 @@ npm install guid --save
 				</section>
 				<section>
 					<p>Again, adding code to our app ...</br> takes too much time</p>
-					<p style="font-size: 80%">Open <a href="https://github.com/larskaare/hackathon_iot_rpimonitor/tree/master/codeexamples/azure_storage" target="_blank">link</a> - copy &amp; paste (3 files) </p>
+					<p style="font-size: 80%">Open lab-10 <a href="https://github.com/larskaare/hackathon_iot_rpimonitor/tree/master/codeexamples/azure_storage" target="_blank">link</a> - copy &amp; paste (3 files) </p>
 					<pre><code class="hljs" data-trim>
 https://github.com/larskaare/hackathon_iot_rpimonitor/tree/master/codeexamples/azure_documentdbgoogle
  alternative

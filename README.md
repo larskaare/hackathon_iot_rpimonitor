@@ -34,12 +34,14 @@ grunt serve
 ~~~~
 ALternatively - open index.html
 
-## Code examples
-... are available in the ./codeexamples folder ...
+## Labs 
+... are available in the ./labs folder and contains most of the source code ...
 
 ## Pre-requistes
 * NodeJs
-* Azure Accounts
+* Azure Accounts with access to DocumentDB and Azure-Storage
+* Github account (optional)
+
 
 ## Thanx
 The presentation is powered by [*reveal.js*](https://github.com/hakimel/reveal.js)

@@ -22,10 +22,10 @@
 			dependencies: [
 				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 				{ src: 'plugin/zoom-js/zoom.js', async: true }
-			]	
+			]
 		});
 
-		
+
 	</script>
 </head>
 
@@ -40,7 +40,7 @@
 			<section>
 				<h2>Goal</h2>
 				<blockquote>
-					&ldquo;By creating an example end-to-end eco-system, trigger and nurture curiosity towards IOT -</br> the technology, appliances,
+					&ldquo;By creating an example end-to-end eco-system we want to trigger and nurture curiosity towards IOT -</br> the technology, appliances,
 					impact, opportunities and risks.&rdquo;
 				</blockquote>
 			</section>
@@ -64,14 +64,14 @@
 					<li>Pushing data to the cloud</li>
 					<li style="color: red">Keep on experimenting!</li>
 				</ol>
-			</section>	
+			</section>
 			</section>
 			<section>
 				<h2>Fasten your seat belts!</h2>
 				<p>I want to get you to the "keep on experimenting" part as fast as possible. This is where the brilliant stuff happens!</p>
 				<p><a href="https://goo.gl/knNe1f" target="_blank">https://goo.gl/knNe1f</a></p>
 			</section>
-			
+
 			<!-- Start of firing up the rpi -->
 			<section>
 				<section data-background="cadetblue">
@@ -89,8 +89,8 @@
 						<li>Logging in using pi/"password"</li>
 						<li>Booting to Pixel (X) or terminal?</br>
 						<div style="color: red">sudo raspi-config</div> or </br><div style="color: red">"berry->Preferences->Raspberry PI Configuration" to change</div></li>
-					</ul>				
-					
+					</ul>
+
 				</section>
 				<section>
 					<h2>We have cheated</h2>
@@ -108,7 +108,7 @@
 					</div>
 				</section>
 			</section>
-			
+
 			<!-- Start of Arduino hello world tutorial -->
 			<section>
 				<section>
@@ -122,15 +122,14 @@
 						<p style="font-size: 60%">A ton of sensors and examples available. </p>
 				</section>
 				<section>
-					<h2>Connecting Laptop/IDE to Arduino</h2>
+					<h2>Connecting The RPI to the Arduino</h2>
 					<p>Using USB would be a good start</p>
-					<p style="font-size: 50%">And hopefully it will not be a security issue</p>
 				</section>
 				<section>
 					<p>Start Arduino IDE</p>
 					<img width="10%" height="10%" src="https://blog.arduino.cc/wp-content/uploads/2013/07/Arduino_logo_pantone.png" alt="Arduino IDE Logo"></br>
 					<img src="./images/Arduino-about.png">
-				</section>		
+				</section>
 				<section>
 					<p>Making the internal led blink</p>
 					<table style="font-size: 80%">
@@ -152,7 +151,7 @@
 							</td>
 						</tr>
 					</table>
-					
+
 				</section>
 				<section>
 					<pre><code class="hljs" data-trim contenteditabl style="font-size: 100%">
@@ -161,10 +160,10 @@ void setup() {
 }
 
 void loop() {
-	digitalWrite(LED_BUILTIN, HIGH);   
-	delay(1000);                       
-	digitalWrite(LED_BUILTIN, LOW);    
-	delay(1000);                       
+	digitalWrite(LED_BUILTIN, HIGH);
+	delay(1000);
+	digitalWrite(LED_BUILTIN, LOW);
+	delay(1000);
 }
 					</code></pre>
 				</section>
@@ -172,7 +171,7 @@ void loop() {
 					<p>Adding a breadboard with led</p>
 					<p style="font-size: 50%">Put led on pin digital 13, led short-pin is negative. 1K resistor.</br>No need to change any code</p>
 					<img width="60%" length="60%" src="./images/Arduino-simple-led.png">
-					<p><a href="https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard" target="_blank">Breadboard</a> - a versatile experimentation device</br></p> 
+					<p><a href="https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard" target="_blank">Breadboard</a> - a versatile experimentation device</br></p>
 				</section>
 				<section>
 					<p>Adding a button, turning led on/off</p>
@@ -201,7 +200,7 @@ void loop() {
   } else {
      digitalWrite(ledPin,LOW);
      //Serial.println("Low");
-  }      
+  }
 }
 					</pre>
 					<pre><blockquote style="color: red">'Tool->Serial monitor' for debugging</blockquote></pre>
@@ -210,7 +209,12 @@ void loop() {
 					<p>Task: Change Arduino logic to include state, know if led is on/off and change accordingly</p>
 					<p style="font-size: 75%">One push turns led on, the next turns led off</p>
 				</section>
-	
+
+			</section>
+
+
+			<section>
+				<h2>Do not tear down the wiring - we are going to use it in the coming examples</h2>
 			</section>
 
 			<!-- Start of Raspberry PI hello world tutorial -->
@@ -241,8 +245,8 @@ void loop() {
 						<li>Logging in using pi/"password"</li>
 						<li>Booting to Pixel (X) or terminal?</br>
 						<div style="color: red">sudo raspi-config</div> or </br><div style="color: red">"berry->Preferences->Raspberry PI Configuration" to change</div></li>
-					</ul>				
-					
+					</ul>
+
 				</section>
 				<section>
 					<h2>We have cheated</h2>
@@ -282,9 +286,8 @@ void loop() {
 						node index.js
 					</code></pre>
 				    <p style="font-size: 50%"><p style="font-size: 50%"><a href="https://github.com/larskaare/hackathon_iot_rpimonitor/tree/master/labs" target="_blank">(lab-3)</a></p></p>
-				</section>		
+				</section>
 			</section>
-			
 
 			<!-- Start of RPI + Arduino tutorial -->
 			<section>
@@ -337,10 +340,10 @@ board.on("ready", function() {
 
 	led.on();
 
-});						
+});
 					</code></pre>
 					<p style="font-size: 50%"><p style="font-size: 50%"><a href="https://github.com/larskaare/hackathon_iot_rpimonitor/tree/master/labs" target="_blank">(lab-4)</a></p></p>
-				</section>	
+				</section>
 				<section>
 					<p>Preparing johnny-five for node &amp; executing index.js</p>
 					<p style="font-size: 50%">(Standing in the project directory ~/code/iotrocks/)</p>
@@ -381,10 +384,14 @@ board.on("ready", function() {
 						<li>Create a .gitignore to exclude the node_modules/ folder</li>
 						<li>Add files to index in git</li>
 						<li>Do a git commit (and perhaps tell git about yourself)</li>
-					</ol>	
-				</section>	
+					</ol>
+				</section>
 			</section>
-			
+
+			<section>
+				<h2>Do not tear down the wiring - we are going to use it in the coming examples</h2>
+			</section>
+
 			<!-- Start of Adding a temperature sensor -->
 			<section>
 				<section>
@@ -401,7 +408,7 @@ board.on("ready", function() {
 					<p><a href="http://cdn.sparkfun.com/datasheets/Sensors/Temp/DS18B20.pdf" target="_blank">Spec sheet</a></p>
 				</section>
 				<section>
-					<p><a href="http://johnny-five.io/examples/temperature-ds18b20/" target="_blank">Wiring</a></p>
+					<p><a href="http://johnny-five.io/examples/temperature-ds18b20/" target="_blank">Example Wiring</a></p>
 					<img width="50%" length="50%" src="https://github.com/rwaldron/johnny-five/raw/master/docs/breadboard/temperature-ds18b20.png">
 					<p style="font-size: 70%">A few notes on wiring our sensor;</br> <font color="red">-</font> is ground,
 					 <font color="red">S</font> is signal - digital pin,</br> the middle pin is 5v. Use a 4.7K resistor (approx).</p>
@@ -432,8 +439,8 @@ button.on("press", function() {
 					<section style="font-size:50%">Hint: ConfigurableFirmata is on github</section></li>
 					<li>Run &amp; verify latest app code (index.js)</li>
 					<li>Add and commit to git</li>
-				</ol>	
-				</section>	
+				</ol>
+				</section>
 			</section>
 
 			<!-- Start of Adding a camera -->
@@ -507,8 +514,8 @@ exports.takeSnapshot = takeSnapshot;
 				<ol>
 					<li>Play around with command line arguments for raspistill</li>
 					<li>Add and commit to git</li>
-				</ol>	
-				</section>	
+				</ol>
+				</section>
 			</section>
 
 			<!-- Start of Adding motion detection -->
@@ -568,8 +575,8 @@ motion.on("motionstart", function() {
 					<li>Run &amp; Verify code</li>
 					<li>Play around with sensitivity and timing on PIR sensor</li>
 					<li>Add and commit to git</li>
-				</ol>	
-				</section>	
+				</ol>
+				</section>
 			</section>
 
 		<!-- Start of Pushing code to github -->
@@ -585,15 +592,15 @@ motion.on("motionstart", function() {
 					<section style="font-size: 50%; color:blueviolet">Hint: We did a video on this in the developer community a few weeks ago - Yammer</section></li>
 					<li>You will, most likely, need to create and add <a href="https://help.github.com/articles/connecting-to-github-with-ssh/" target="_blank">ssh keys</a> to your github account</li>
 					<li>Push to github and verify</li>
-				</ol>	
-				</section>	
+				</ol>
+				</section>
 				<section>
 					<p style="font-size: 80%">Some code lines</p>
 					<pre><code class="hljs" data-trim>
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ssh-add ~/.ssh/id_rsa
 ... we recommend using a password for the ssh key
-... add key to you github account						
+... add key to you github account
 git remote add origin git@github.com:swsvg/"name of repo".git
 git push -u origin master
 					</code></pre>
@@ -657,8 +664,8 @@ var directory = "";
 					<li>Commit changes to git and push to remote repository on github.com
 						</br><font color="red" size="4">Again, verify that access keys++ are not included in the repo</font>
 					</li>
-				</ol>	
-				</section>	
+				</ol>
+				</section>
 				<section>
 					<p>We will utilize <a href="https://azure.microsoft.com/en-us/services/documentdb/" target="_blank">Azure DocumentDB</a> - </br>to store sensor data</p>
 					<p>We will use the NodeJs SDK - rather than REST to communicate with DocumentDB</p>
@@ -710,8 +717,8 @@ var collectionName = '';
 				<ol>
 					<li>Run code, verify that sensor data (temperature) are available in yor Azure DocumentDB</li>
 					<li>Commit changes to git and push to remote repository on github.com</li>
-				</ol>	
-				</section>				
+				</ol>
+				</section>
 			</section>
 
 			<!-- Start of you keep on experimenting -->
